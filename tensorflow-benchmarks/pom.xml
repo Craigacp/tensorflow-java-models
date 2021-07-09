@@ -1,0 +1,68 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.tensorflow.model</groupId>
+  <artifactId>tensorflow-benchmarks</artifactId>
+  <version>0.3.2-SNAPSHOT</version>
+
+  <name>TensorFlow Benchmarks</name>
+  <description>A suite of benchmarks for measuring speed and memory usage using TensorFlow Java</description>
+
+  <properties>
+    <!-- The sample code requires at least JDK 1.8. -->
+    <!-- The maven compiler plugin defaults to a lower version -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <tensorflow.version>0.3.1</tensorflow.version>
+    <jmh.version>1.32</jmh.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.tensorflow</groupId>
+      <artifactId>tensorflow-core-platform</artifactId>
+      <version>${tensorflow.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.tensorflow</groupId>
+      <artifactId>tensorflow-framework</artifactId>
+      <version>${tensorflow.version}</version>
+    </dependency>
+    <!--<dependency>
+      <groupId>org.tensorflow</groupId>
+      <artifactId>tensorflow-examples</artifactId>
+      <version>0.3.1-SNAPSHOT</version>
+    </dependency>-->
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-core</artifactId>
+      <version>${jmh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-generator-annprocess</artifactId>
+      <version>${jmh.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

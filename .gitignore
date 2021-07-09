@@ -14,3 +14,8 @@ tmp/
 .project
 dist/
 .DS_Store
+tensorflow-benchmarks/models/bert
+tensorflow-benchmarks/models/elmo
+tensorflow-benchmarks/models/resnet-50
+
+*~
